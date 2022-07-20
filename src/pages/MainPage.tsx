@@ -1,25 +1,36 @@
 import styled from "styled-components";
-
-const Container = styled.div`
-    display: flex;
-    flex-direction: column;
-    align-items: left;
-    max-width: 800px;
-    margin: 20px auto;
-    color: #eee;
-    font-family: sans-serif;
-`
+import { Section } from "../components/Section";
+import * as React from 'react';
+import pageManager from './pagemanager'
+import { useNavigate } from "react-router-dom";
 
 function MainPage() {
+    const navigate = useNavigate();
+
     return (
-        <Container>
-            <h1>
-                Luke DiGiovannna
-            </h1>
-            <p>
-                Hello, I am a software developer.
-            </p>
-        </Container>
+        <>
+            <Section zoomPosition={{x: -1.175, y: 0.1}} zoomScale={1.5}>
+                <h1>
+                    <a onClick={() => {
+                        navigate('/web-development');
+                    }}>
+                        Web Development
+                    </a>
+                </h1>
+            </Section>
+            <Section zoomPosition={{x: -0.5, y: 0.3}} zoomScale={1.0}>
+                <a onClick={() => {
+                    navigate('/about');
+                }}>
+                    <h1>
+                        Luke DiGiovanna
+                    </h1>
+                </a>
+                <p>
+                    Hello, I am a software developer.
+                </p>
+            </Section>
+        </>
     )
 }
 

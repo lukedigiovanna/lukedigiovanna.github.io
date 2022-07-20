@@ -1,3 +1,4 @@
+import { Vector2 } from '../models/math.model';
 import * as GL from './webgl';
 
 const vsSource = `
@@ -43,8 +44,9 @@ const fsSource = `
             gl_FragColor = vec4(0.0, 0.0, 0.0, 1.0);
         }
         else {
-            mediump float ns = i + 1.0 - log2(log2(dot(z, z)));
-            gl_FragColor = vec4(hsb2rgb(vec3(ns / 50.0 + t * 0.05, 1.0, 1.0)), 1.0);
+            mediump float ns = (i + 1.0 - log2(log2(dot(z, z)))) / 50.0;
+            // mediump float ns = i / maxIterations;
+            gl_FragColor = vec4(hsb2rgb(vec3(0.74 - 0.55 * ns, 1.0, 0.8)), 1.0);
         }
     }
 `
@@ -56,6 +58,8 @@ class Core {
     private shaderProgram: any = null;
     private programInfo: any = null;
     private buffers: any = null;
+    public position: Vector2 = { x: -0.5, y: 0 };
+    public scale: number = 1.35;
 
     constructor() {
         this.render = this.render.bind(this);
@@ -96,15 +100,21 @@ class Core {
     public render() {
         this.updateCanvasDimensions();
         if (this.initialized) {
+            // this.scale = Math.sin(Date.now() / 1000) * 0.5 + 0.55;
+            // this.scale = 0.5 + Math.sin(Date.now() / 1000) * 0.0001;
+
             this.gl.useProgram(this.shaderProgram);
             this.gl.viewport(0, 0, this.canvas.width, this.canvas.height);
             this.gl.uniform1f(this.programInfo.uniformLocations.tPosition, Math.sin(Date.now() / 1000 * 2) * 0.5 + 0.5);
-            this.gl.uniform1f(this.programInfo.uniformLocations.scalePosition, 1.35);
-            // this.gl.uniform1f(this.programInfo.uniformLocations.scalePosition, Math.sin(Date.now() / 1000 * 0.5) + 1);
-            this.gl.uniform2f(this.programInfo.uniformLocations.centerPosition, -0.5, 0);
-            // this.gl.uniform2f(this.programInfo.uniformLocations.centerPosition, 0.3750001200618655, -0.2166393884377127);
+            this.gl.uniform1f(this.programInfo.uniformLocations.scalePosition, this.scale);
+            this.gl.uniform2f(this.programInfo.uniformLocations.centerPosition, this.position.x, this.position.y);
             GL.drawScene(this.gl, this.programInfo, this.buffers)
         }
+
+        // put our current location data into localstorage.
+        window.localStorage.setItem('pos-x', this.position.x.toString());
+        window.localStorage.setItem('pos-y', this.position.y.toString());
+        window.localStorage.setItem('scale', this.scale.toString());
 
         window.requestAnimationFrame(this.render);
     }
