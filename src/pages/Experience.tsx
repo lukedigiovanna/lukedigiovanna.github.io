@@ -1,8 +1,6 @@
 import styled from "styled-components";
 import { JobDescription } from "../components/JobDescription";
-import { Container, Column } from "../theme";
-
-
+import { Row, Column } from "../theme";
 
 const Title = styled.h1`
     font-family: sans-serif;
@@ -11,7 +9,7 @@ const Title = styled.h1`
 
 export const Experience = () => {
     return (
-        <Container>
+        <Row>
             <Column>
                 <Title>
                     Experience
@@ -22,22 +20,22 @@ export const Experience = () => {
                                 jobLocation={"Ashburn, VA (Remote)"}
                                 startDate={"June 2020"}
                                 endDate={"Present"}
-                                description={"When I was a kid I desperately pled to my mom to find something for me to learn programming. Unfortunately, at the time there wasn't much in the way of coding classes, so I had to pick up a book. But now, I am able to be what I had always wanted when I was kid. With this job I share my passion for coding to the similarly passionate next generation!"} />
+                                description={"When I was a kid I desperately pled my mom to find something for me to learn programming. Unfortunately, at the time there wasn't much in the way of coding classes, so I had to pick up a book. But now, I am able to be what I had always wanted when I was kid. With this job I share my passion for coding to the similarly passionate next generation!"} />
                 <JobDescription logo={require("../assets/virginiatech.png")}
                                 companyTitle={"Virginia Tech"}
                                 jobTitle={"Undergraduate Teaching Assistant"}
                                 jobLocation={"Blacksburg, VA"}
                                 startDate={"Sept. 2022"}
                                 endDate={"Present"}
-                                description={"!"} />
-                <JobDescription logo={require("../assets/profile_image.jpg")}
+                                description={"I've taken my love for spreading my knowledge of programming to the collegiate level where I assist Professor Liao in CEE 3814 Analytical Tools in Civil Engineering. I grade homeworks and hold office hours for students with additional questions. All of the course is done in Python."} />
+                <JobDescription logo={require("../assets/mantech.png")}
                                 companyTitle={"ManTech International"}
                                 jobTitle={"DFEND Intern"}
                                 jobLocation={"Chantilly, VA"}
                                 startDate={"June 2021"}
                                 endDate={"Aug. 2021"}
-                                description={""} />
+                                description={"I was fortunate enough to have the opportunity to apply for a tech internship after my senior year of high school. At this opportunity I was able to learn a lot about cybersecurity, encryption, low level programming, and many other topics. Although I don't wish to pursue a further career in cybersecurity or the defense industry, this internship gave me valuable knowledge in the field of computer science."} />
             </Column>
-        </Container>
+        </Row>
     );
 }

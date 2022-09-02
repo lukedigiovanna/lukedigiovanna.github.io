@@ -1,4 +1,4 @@
-import { Header, Body, Container, Column } from '../theme';
+import { Header, Body, Row, Column } from '../theme';
 
 import styled from 'styled-components';
 
@@ -21,7 +21,7 @@ const FieldValue = styled.span`
 
 export const Contact = () => {
     return (
-        <Container>
+        <Row>
             <Column>
                 <Header> Contact </Header>
                 <Body>
@@ -44,6 +44,6 @@ export const Contact = () => {
                     </Field>
                 </Body>
             </Column>
-        </Container>
+        </Row>
     );
 }

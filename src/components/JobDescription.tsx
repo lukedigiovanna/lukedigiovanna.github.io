@@ -8,6 +8,7 @@ const Block = styled.div`
     flex-direction: row;
     font-family: sans-serif;
     margin-block: 15px;
+    padding: 10px;
 `
 
 const Logo = styled.img`
@@ -28,6 +29,7 @@ const Header = styled.p`
 
 const Subheader = styled.p`
     margin-top: 0;
+    margin-bottom: 0;
     font-size: 0.95rem;
 `
 
@@ -52,6 +54,7 @@ const Date = styled.span`
 const Description = styled.p`
     color: #333;
     font-size: 0.95rem;
+    margin-top: 5px;
 `
 
 export const JobDescription = (props: {logo: any, companyTitle: string, jobTitle: string, jobLocation: string, description: string, startDate: string, endDate: string}) => {

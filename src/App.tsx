@@ -38,38 +38,11 @@ const Container = styled.div`
   display: flex;
   flex-direction: column;
   align-items: center;
-  height: 100vh;
+  min-height: 100vh;
   width: 100vw;
   margin: 0;
   position: relative;
-  padding-top: 5rem;
-`
-
-const Title = styled(GradientText)`
-  text-align: center;
-  font-weight: bold;
-  font-size: 6rem;
-  font-family: sans-serif;
-
-  animation: ${fadeIn} 1.2s ease-in-out;
-`
-
-const Subtitle = styled(GradientText)`
-  font-family: sans-serif;
-  text-align: center;
-  font-size: 2.4rem;
-  margin-top:0;
-
-  animation: ${fadeIn} 1.2s ease-in-out;
-`
-
-const Canvas = styled.canvas`
-  position: absolute;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 100%;
-  z-index: -1;
+  padding-top: 3rem;
 `
 
 const Navbar = styled.nav`
@@ -145,10 +118,10 @@ function App() {
   // React.useEffect(() => {
   //   // window.location.href = "https://youtube.com";
   // });
-
+  
   return (
     <AppContainer>
-      {/* <Canvas ref={canvasRef}></Canvas> */}
+      {/* <WIP>This site is still a work in progress!</WIP> */}
       <Navbar>
         <NavbarContent>
           <Name>
@@ -170,7 +143,6 @@ function App() {
           </NavbarButtonSection>
         </NavbarContent>
       </Navbar>
-      <WIP>This site is still a work in progress!</WIP>
       <Container id={"about"}>
         <About />
       </Container>

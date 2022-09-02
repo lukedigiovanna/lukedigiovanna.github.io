@@ -11,10 +11,9 @@ export const Body = styled.p`
     font-size: 1.05rem;
 `
 
-export const Container = styled.div`
+export const Row = styled.div`
     display: flex;
     flex-direction: row;
-    max-width: 700px;
     width: 700px;
 `
 
