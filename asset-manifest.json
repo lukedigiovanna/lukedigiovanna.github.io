@@ -1,16 +1,20 @@
 {
   "files": {
-    "main.js": "/static/js/main.9958507b.js",
-    "static/media/nz.png": "/static/media/nz.488f2ac130d9d03ccd50.png",
-    "static/media/ny.png": "/static/media/ny.0e1810eb1c8bd1566fa3.png",
-    "static/media/nx.png": "/static/media/nx.39823beb49eeabd2f5ad.png",
-    "static/media/pz.png": "/static/media/pz.95873a54cbeadebbf805.png",
-    "static/media/px.png": "/static/media/px.3d3fcc7c10341dd35014.png",
-    "static/media/py.png": "/static/media/py.dd763cf41e79482270e2.png",
+    "main.css": "/static/css/main.8a685450.css",
+    "main.js": "/static/js/main.17216d13.js",
+    "static/media/coderschool.png": "/static/media/coderschool.137d67e237414eae7ae3.png",
+    "static/media/virginiatech.png": "/static/media/virginiatech.5550eaa2ddedd471046e.png",
+    "static/media/profile_image.jpg": "/static/media/profile_image.06975470f0fe15eb7461.jpg",
+    "static/media/mantech.png": "/static/media/mantech.57c3c4d2820a7a236fbc.png",
+    "static/media/github.png": "/static/media/github.b029b5994ccee7ba7464.png",
+    "static/media/youtube.png": "/static/media/youtube.67776e334c085cc42093.png",
+    "static/media/linkedin.png": "/static/media/linkedin.e9db41041d38d6fb97b4.png",
     "index.html": "/index.html",
-    "main.9958507b.js.map": "/static/js/main.9958507b.js.map"
+    "main.8a685450.css.map": "/static/css/main.8a685450.css.map",
+    "main.17216d13.js.map": "/static/js/main.17216d13.js.map"
   },
   "entrypoints": [
-    "static/js/main.9958507b.js"
+    "static/css/main.8a685450.css",
+    "static/js/main.17216d13.js"
   ]
 }
