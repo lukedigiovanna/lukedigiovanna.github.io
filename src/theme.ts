@@ -18,5 +18,6 @@ export const Row = styled.div`
 `
 
 export const Column = styled.div`
-    margin: 20px;
+    flex-direction: column;
+    margin-inline: 20px;
 `

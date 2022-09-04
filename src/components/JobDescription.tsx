@@ -2,7 +2,7 @@ import styled from "styled-components";
 
 const Block = styled.div`
     border-radius: 3px;
-    background: linear-gradient(to right, #dfdddd, #b3b8bd, #dfdddd);
+    background: linear-gradient(-45deg, #b3b8bd, #dfdddd, #b3b8bd);
     width: 700px;
     display: flex;
     flex-direction: row;

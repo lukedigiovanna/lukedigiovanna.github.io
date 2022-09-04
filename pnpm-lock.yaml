@@ -12,10 +12,14 @@ specifiers:
   '@types/styled-components': ^5.1.25
   '@types/three': ^0.143.0
   gh-pages: ^4.0.0
+  gsap: ^3.11.0
   react: ^18.2.0
   react-dom: ^18.2.0
+  react-gsap: ^3.2.1
   react-scripts: 5.0.1
+  react-scrollmagic: ^2.3.0
   scrollmagic: ^2.0.8
+  scrollmagic-plugin-gsap: ^1.0.4
   styled-components: ^5.3.5
   three: ^0.143.0
   typescript: ^4.7.4
@@ -33,10 +37,14 @@ dependencies:
   '@types/styled-components': 5.1.25
   '@types/three': 0.143.0
   gh-pages: 4.0.0
+  gsap: 3.11.0
   react: 18.2.0
   react-dom: 18.2.0_react@18.2.0
+  react-gsap: 3.2.1_pokevesxcxeshi6or45niiaghe
   react-scripts: 5.0.1_qtbnez4q7bzoc4eqybg3efzzxe
+  react-scrollmagic: 2.3.0_biqbaboplfbrettd7655fr4n2y
   scrollmagic: 2.0.8
+  scrollmagic-plugin-gsap: 1.0.4
   styled-components: 5.3.5_biqbaboplfbrettd7655fr4n2y
   three: 0.143.0
   typescript: 4.7.4
@@ -2352,6 +2360,10 @@ packages:
     resolution: {integrity: sha512-anKkLmZZ+xm4p8JWBf4hElkM4XR+EZeA2M9BAkkTldmcyDY4mbdIJnRghDJH3Ov5ooY7/UAoENtmdMSkaAd7Cw==}
     dependencies:
       '@types/node': 16.11.47
+    dev: false
+
+  /@types/gsap/1.20.2:
+    resolution: {integrity: sha512-i9nUsnS32+VTgoX5IlaCYukJpCoB3c6h3bZvO67aIRdb3z8NFTWgeUDpQutLyb1ujowp6nw37qLQNvEowqq8yw==}
     dev: false
 
   /@types/hoist-non-react-statics/3.3.1:
@@ -5338,6 +5350,10 @@ packages:
     resolution: {integrity: sha512-bzh50DW9kTPM00T8y4o8vQg89Di9oLJVLW/KaOGIXJWP/iqCN6WKYkbNOF04vFLJhwcpYUh9ydh/+5vpOqV4YQ==}
     dev: false
 
+  /gsap/3.11.0:
+    resolution: {integrity: sha512-TV5aFGqXht+0o/CelnhCikSe3QGeG+q1XA/fyFFsMzesILHgWgFWIz0NuXIgcMaL5h7MG2l+j0BTupS5YyYkrw==}
+    dev: false
+
   /gzip-size/6.0.0:
     resolution: {integrity: sha512-ax7ZYomf6jqPTQ4+XCpUGyXKHk5WweS+e05MBO4/y3WJ5RkmPXNKvX+bx1behVILVwr6JSQvZAku021CHPXG3Q==}
     engines: {node: '>=10'}
@@ -8251,6 +8267,20 @@ packages:
     resolution: {integrity: sha512-/6UZ2qgEyH2aqzYZgQPxEnz33NJ2gNsnHA2o5+o4wW9bLM/JYQitNP9xPhsXwC08hMMovfGe/8retsdDsczPRg==}
     dev: false
 
+  /react-gsap/3.2.1_pokevesxcxeshi6or45niiaghe:
+    resolution: {integrity: sha512-IX6XiN1a74hmU385yNZAYV1cFe3/Xmbg8eT99VCjmz7yzQq1qIsR47gkX5rkWeml9KmyEgiIzqArYaipPkKIbw==}
+    engines: {node: '>=10'}
+    peerDependencies:
+      gsap: '>=3'
+      react: ^16.0.0-0 || ^17.0.0-0
+      react-dom: ^16.0.0-0 || ^17.0.0-0
+    dependencies:
+      gsap: 3.11.0
+      react: 18.2.0
+      react-dom: 18.2.0_react@18.2.0
+      react-is: 16.13.1
+    dev: false
+
   /react-is/16.13.1:
     resolution: {integrity: sha512-24e6ynE2H+OKt4kqsOvNd8kBpV65zoxbA4BVsEOB3ARVWQki/DHzaUoC5KuON/BiccDaCCTZBuOcfZs70kR8bQ==}
     dev: false
@@ -8362,6 +8392,17 @@ packages:
       - webpack-cli
       - webpack-hot-middleware
       - webpack-plugin-serve
+    dev: false
+
+  /react-scrollmagic/2.3.0_biqbaboplfbrettd7655fr4n2y:
+    resolution: {integrity: sha512-yVw85uENSPow/ZJxZhPR84nZuyQZQNGfOAaL22+xNAhF5qMX2vbHv0Jeurydc9lS+6OocSY+09MHWQ0LESy9Mg==}
+    engines: {node: '>=8', npm: '>=5'}
+    peerDependencies:
+      react: ^16.0.0-0 || ^17.0.0-0
+      react-dom: ^16.0.0-0 || ^17.0.0-0
+    dependencies:
+      react: 18.2.0
+      react-dom: 18.2.0_react@18.2.0
     dev: false
 
   /react/18.2.0:
@@ -8705,6 +8746,12 @@ packages:
       ajv: 8.11.0
       ajv-formats: 2.1.1
       ajv-keywords: 5.1.0_ajv@8.11.0
+    dev: false
+
+  /scrollmagic-plugin-gsap/1.0.4:
+    resolution: {integrity: sha512-OLeo4J6V9wvnRP03/LJkgb5qkHIOzSckWX3hJ+Hh3uPJIfwttxCRRr4+w16WHPCQwZidUA9eEbtKeR7kyjdHVg==}
+    dependencies:
+      '@types/gsap': 1.20.2
     dev: false
 
   /scrollmagic/2.0.8:

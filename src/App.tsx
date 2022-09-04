@@ -1,35 +1,16 @@
-import styled, {keyframes} from "styled-components";
-import * as React from 'react';
+import styled from "styled-components";
 
-import ScrollMagic from 'scrollmagic';
 import { About } from "./pages/About";
 import { Projects } from "./pages/Projects";
 import { Experience } from "./pages/Experience";
 import { Contact } from "./pages/Contact";
 
-const GradientText = styled.p<{ colors: string[] }>`
-  background: linear-gradient(to right, ${(props) => props.colors.join(", ")});
-  background-clip: text;
-  -webkit-background-clip: text;
-  width: fit-content;
-  color: transparent;
-`
-
-const fadeIn = keyframes`
-  from {
-    transform: translateY(-100%);
-    opacity: 0;
-  }
-
-  to {
-    transform: translateY(0%);
-    opacity: 1;
-  }
-`
+import { Controller, Scene } from 'react-scrollmagic';
+import { Tween } from "react-gsap";
 
 const AppContainer = styled.div`
-  scroll-snap-type: y mandatory;
-  overflow-y: scroll;
+  /* scroll-snap-type: y mandatory; */
+  /* overflow-y: scroll; */
   height: 100vh;
 `;
 
@@ -93,35 +74,9 @@ const Name = styled.p`
   margin: 0;
 `
 
-const WIP = styled.div`
-  position: absolute;
-  top: 100px;
-  left: 100px;
-  background-color: #ff7b7b;
-  max-width: 100px;
-  padding: 20px;
-  border-radius: 10px;
-  filter: drop-shadow(0px 0px 10px #000);
-`
-
-window.addEventListener('load', () => {
-  const controller = new ScrollMagic.Controller();
-  
-  new ScrollMagic.Scene({
-    duration: 7000,
-    offset: 100,
-  }).setPin("#introduction").addTo(controller);
-})
-
 function App() {
-
-  // React.useEffect(() => {
-  //   // window.location.href = "https://youtube.com";
-  // });
-  
   return (
     <AppContainer>
-      {/* <WIP>This site is still a work in progress!</WIP> */}
       <Navbar>
         <NavbarContent>
           <Name>
@@ -143,16 +98,20 @@ function App() {
           </NavbarButtonSection>
         </NavbarContent>
       </Navbar>
-      <Container id={"about"}>
+      <Container id={"about"} 
+        style={{background: "linear-gradient(to bottom, #eaf4ff, #e6fef9)"}}>
         <About />
       </Container>
-      <Container id={"projects"}>
+      <Container id={"projects"}
+        style={{background: "linear-gradient(to bottom, #e6fef9, #eaf4ff)"}}>
         <Projects />
       </Container>
-      <Container id={"experience"}>
+      <Container id={"experience"}
+        style={{background: "linear-gradient(to bottom, #eaf4ff, #e6fef9)"}}>
         <Experience />
       </Container>
-      <Container id={"contact"}>
+      <Container id={"contact"}
+        style={{background: "linear-gradient(to bottom, #e6fef9, #eaf4ff)"}}>
         <Contact />
       </Container>
     </AppContainer>
