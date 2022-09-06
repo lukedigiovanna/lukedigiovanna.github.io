@@ -9,8 +9,8 @@ import { Controller, Scene } from 'react-scrollmagic';
 import { Tween } from "react-gsap";
 
 const AppContainer = styled.div`
-  /* scroll-snap-type: y mandatory; */
-  /* overflow-y: scroll; */
+  scroll-snap-type: y mandatory;
+  overflow-y: scroll;
   height: 100vh;
 `;
 

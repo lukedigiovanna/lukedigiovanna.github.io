@@ -1,57 +1,133 @@
 import styled from "styled-components"
-
 import { Header } from "../theme"
 
-import ScrollMagic from 'scrollmagic';
-import gsap from "gsap";
 import { useEffect } from "react";
-import { ProjectBlock } from "../components/ProjectBlock";
+import { ProjectBlock, BlockSpacer, BlockSpacerStart, PaddingOffset } from "../components/ProjectBlock";
+
+import projects, { Project } from "../projects";
 
 const Timeline = styled.div`
     overflow: auto;
-    display: flex;
-    flex-direction: row;
-    max-width: 1000px;
+    position: relative;
+    max-width: 100%;
+    mask: linear-gradient(90deg, rgba(0,0,0,0) 5%, rgba(0,0,0,1) 25%, rgba(0,0,0,1) 75%, rgba(0,0,0,0) 95%);
 `
 
-export const Projects = () => {
-    useEffect(() => {
+const TickMark = styled.div<{index: number}>`
+    width: 3px;
+    background-color: black;
+    height: 40px;
+    top: ${props => props.index % 2 === 0 ? -25 : -10}px;
+    left: ${props => 530 + props.index * 660}px;
+    position: absolute;
+`
 
-    }, []);
-    
+const TopRow = styled.div`
+    display: flex;
+    flex-direction: row;
+    align-items: flex-end;
+`
+
+const BottomRow = styled.div`
+    display: flex;
+    flex-direction: row;
+`
+
+const Line = styled.div`
+    width: ${425 + projects.length * 700}px;
+    height: 3px;
+    background-color: black;
+    margin-block: 20px;
+    position: relative;
+`
+
+export const Projects = () => {    
     return (
         <>
             <Header>
                 Projects
             </Header>
             <Timeline id={"timeline"}>
-                <ProjectBlock
-                    title={"Wiki-Lie"}
-                    startDate={"February 2022"}
-                    endDate={"Present"}
-                    description={"Wiki-Lie is an online party game inspired by Tom Scott's Two of These People are Lying. The premise of the game is simple: All players must convince a chosen guesser that they know about a particular topic, but only one player actually knows about that topic. I initially tried playing this game on paper, but found it quite difficult to keep track of the articles, so I decided to make a web app version."}
-                    githubURL={"github.com"}
-                    icon={null}
-                    skills={["Node.js", "TypeScript", "React.js", "Express", "Socket.io", "HTML/CSS", "Wikimedia API"]}
-                />
-                <ProjectBlock
-                    title={"Googlepedia"}
-                    startDate={"August 2022"}
-                    endDate={"Present"}
-                    description={"I wanted to try creating a search engine, so I did. This is quite basic and only searches Wikipedia, but it makes use of a webscraper, indexer, and frontend, just as in a real search engine."}
-                    githubURL={"github.com"}
-                    icon={null}
-                    skills={["PostgreSQL", "Web Scraping", "Index", "TypeScript", "Node.js", "Express", "Axios"]}
-                />
-                <ProjectBlock
-                    title={"Sample Project"}
-                    startDate={"March 2020"}
-                    endDate={"Present"}
-                    description={"Destroy the world and collapse global supply chains"}
-                    githubURL={"github.com"}
-                    icon={null}
-                    skills={["High Infectiousness", "Global Scarcity", "Death"]}
-                />
+                <TopRow>
+                    <PaddingOffset />
+                    {
+                        projects.map((project: Project, index: number) => {
+                            if (index % 2 === 0) {
+                                if (index < projects.length - 2) {
+                                    return (
+                                        <>
+                                            <ProjectBlock
+                                                project={project}
+                                                bottom={false}
+                                                key={index}
+                                                />
+                                            <BlockSpacer />
+                                        </>
+                                    )       
+                                }
+                                else {
+                                    return (
+                                        <ProjectBlock
+                                            project={project}
+                                            bottom={false}
+                                            key={index}
+                                        />
+                                    )
+                                }
+                            }
+                            return (
+                                <></>
+                            )
+                        })
+                    }
+                    <PaddingOffset />
+                </TopRow>
+                <Line>
+                    {
+                        projects.map((project: Project, index: number) => {
+                            return (
+                                <TickMark index={index}>
+
+                                </TickMark>
+                            )
+                        })
+                    }
+                </Line>
+                <BottomRow>
+                    <BlockSpacerStart />
+                    <PaddingOffset />
+                    {
+                        projects.map((project: Project, index: number) => {
+                            if (index % 2 === 1) {
+                                if (index < projects.length - 2) {
+                                    return (
+                                        <>
+                                            <ProjectBlock
+                                                project={project}
+                                                bottom={true}
+                                                key={index}
+                                            />
+                                            <BlockSpacer />
+                                        </>
+                                    )
+                                }
+                                else {
+                                    return (
+                                        <ProjectBlock
+                                            project={project}
+                                            key={index}
+                                            bottom={true}
+                                        />
+                                    )
+                                }
+                            }
+                            else {
+                                return <></>
+                            }
+                        })
+                    }
+                    <PaddingOffset />
+                </BottomRow>
             </Timeline>
         </>
     )
