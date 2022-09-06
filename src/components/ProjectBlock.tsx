@@ -1,7 +1,7 @@
 import styled from "styled-components";
 import { Project } from "../projects";
 
-import { Column, Row } from '../theme';
+import theme, { Column, Row } from '../theme';
 
 const InfoLabel = styled.span`
     font-weight: bold;
@@ -12,7 +12,7 @@ const InfoRow = styled.p`
 `
 
 const Block = styled.div`
-    font-family: sans-serif;
+    font-family: ${theme.fonts.secondary};
     background-color: #d6e2f1;
     border-radius: 5px;
     margin: 10px;
@@ -27,6 +27,7 @@ const Title = styled.p`
     margin: 0;
     text-align: center;
     width: 100%;
+    font-family: ${theme.fonts.primary}
 `
 
 export const BlockSpacer = styled.div`

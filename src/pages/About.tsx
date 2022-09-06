@@ -1,6 +1,6 @@
 import styled from "styled-components";
 
-import { Header, Body, Row, Column } from '../theme';
+import theme, { Header, Body, Row, Column } from '../theme';
 
 const ProfileImage = styled.img`
     width: 240px;
@@ -17,7 +17,7 @@ const Links = styled.div`
 `
 
 const LinksTitle = styled.p`
-    font-family: sans-serif;
+    font-family: ${theme.fonts.primary};
     font-size: 1.3rem;
 `
 

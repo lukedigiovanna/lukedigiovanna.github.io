@@ -7,6 +7,7 @@ import { Contact } from "./pages/Contact";
 
 import { Controller, Scene } from 'react-scrollmagic';
 import { Tween } from "react-gsap";
+import theme from "./theme";
 
 const AppContainer = styled.div`
   scroll-snap-type: y mandatory;
@@ -52,7 +53,7 @@ const NavbarButtonSection = styled.div`
 
 const NavbarButton = styled.a`
   text-decoration: none;
-  font-family: sans-serif;
+  font-family: ${theme.fonts.primary};
   color: #ddd;
   font-size: 1.1rem;
   font-weight: bold;
@@ -67,7 +68,7 @@ const NavbarButton = styled.a`
 `
 
 const Name = styled.p`
-  font-family: sans-serif;
+  font-family: ${theme.fonts.primary};
   font-weight: bold;
   color: #eee;
   font-size: 1.8rem;

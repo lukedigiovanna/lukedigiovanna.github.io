@@ -1,4 +1,5 @@
 import styled from "styled-components";
+import theme from "../theme";
 
 const Block = styled.div`
     border-radius: 3px;
@@ -6,7 +7,7 @@ const Block = styled.div`
     width: 700px;
     display: flex;
     flex-direction: row;
-    font-family: sans-serif;
+    font-family: ${theme.fonts.secondary};
     margin-block: 15px;
     padding: 10px;
 `

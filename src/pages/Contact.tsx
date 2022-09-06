@@ -1,11 +1,11 @@
-import { Header, Body, Row, Column } from '../theme';
+import theme, { Header, Body, Row, Column } from '../theme';
 
 import styled from 'styled-components';
 
 const Field = styled.p`
     margin-block: 10px;
     font-size: 1.05rem;
-    font-family: sans-serif;
+    font-family: ${theme.fonts.secondary};
 `
 
 const FieldTitle = styled.span`

@@ -1,9 +1,9 @@
 import styled from "styled-components";
 import { JobDescription } from "../components/JobDescription";
-import { Row, Column } from "../theme";
+import theme, { Row, Column } from "../theme";
 
 const Title = styled.h1`
-    font-family: sans-serif;
+    font-family: ${theme.fonts.primary};
     color: #222;
 `
 
