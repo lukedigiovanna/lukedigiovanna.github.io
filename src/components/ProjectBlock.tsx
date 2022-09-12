@@ -11,12 +11,13 @@ const InfoRow = styled.p`
     margin: 3px;
 `
 
-const Block = styled.div`
+const Block = styled.div<{bottom: boolean}>`
     font-family: ${theme.fonts.secondary};
     background-color: #d6e2f1;
     border-radius: 5px;
     margin: 10px;
-    /* padding-inline: 20px; */
+    padding-top: ${props => props.bottom ? 0 : 15}px;
+    padding-bottom: ${props => props.bottom ? 15 : 0}px;
     height: fit-content;
 `
 
@@ -67,7 +68,7 @@ export const ProjectBlock = (
     }
 ) => {
     return (
-        <Block>
+        <Block bottom={props.bottom}>
             <Column>
                 {
                     props.bottom &&
@@ -87,7 +88,15 @@ export const ProjectBlock = (
                         <InfoRow>
                             <InfoLabel>Github: </InfoLabel>
                             <a target="_blank" href={props.project.githubURL}> here </a>
+                        
                         </InfoRow>
+                        {
+                            props.project.liveURL && 
+                            <InfoRow>
+                                <InfoLabel>Play: </InfoLabel>
+                                <a target="_blank" href={props.project.liveURL}> here </a>
+                            </InfoRow>
+                        }
                         <InfoRow>
                             <InfoLabel> Skills/Technology Used: </InfoLabel>
                         </InfoRow>
@@ -97,8 +106,9 @@ export const ProjectBlock = (
                             }
                         </InfoRow>
                     </Column>
-                    <Column style={{maxWidth: "400px"}}>
-                        {props.project.description}
+                    <Column style={{maxWidth: "400px"}} dangerouslySetInnerHTML={{
+                        __html: props.project.description
+                    }}>
                     </Column>
                 </Row>
                 {
