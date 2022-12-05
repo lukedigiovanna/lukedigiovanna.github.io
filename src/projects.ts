@@ -1,7 +1,7 @@
 
 export interface Project {
     title: string;
-    githubURL: string; 
+    githubURL: string | null; 
     liveURL: string | null;
     downloadURL: string | null;
     icon: any;
@@ -13,9 +13,31 @@ export interface Project {
 
 const projects: Project[] = [
     {
+        title: "Blogging Website",
+        startDate: "September 2022",
+        endDate: "December 2022",
+        description: "I have always wanted a platform to be able to easily and freely write essays about topics of my own choosing. So, I developed a custom platform for me to write, publish, and edit articles. It's quite simple, but convenient.",
+        liveURL: "http://lukedigi-blog.herokuapp.com",
+        githubURL: null,
+        downloadURL: null,
+        icon: null,
+        skills: ["React.js", "Express", "Firebase/Firestore"]
+    },
+    {
+        title: "Search Engine",
+        startDate: "September 2022",
+        endDate: "Present",
+        description: "As a follow-up to my Googlepedia project, I wasn't satisfied that all of the algorithmic complexity was hidden behind simple instructions given to PostgreSQL. So, I implemented my own database application that makes use of the Inverted Index data structure to efficiently execute full-text searches and rankings. It includes an API for making search requests and works on both Wikipedia articles and images. A journal of my progress is attached <a target='_blank' href='https://docs.google.com/document/d/1ybQDWr1OHtBjlFQ0sO_RA-qTLm5HhRMHrtWEUWUvS1g/edit?usp=sharing'>here</a>",
+        liveURL: null,
+        downloadURL: null,
+        icon: null,
+        githubURL: "https://github.com/lukedigiovanna/search-database",
+        skills: ["Java", "Data Structures", "Algorithms", "File Access Operations", "Serialization", "HTTP"]
+    },
+    {
         title: "Wiki-Lie",
         startDate: "February 2022",
-        endDate: "Present",
+        endDate: "July 2022",
         description: "Wiki-Lie is an online party game inspired by Tom Scott's Two of These People are Lying. The premise of the game is simple: All players must convince a chosen guesser that they know about a particular topic, but only one player actually knows about that topic. I initially tried playing this game on paper, but found it quite difficult to keep track of the articles, so I decided to make a web app version.",
         githubURL: "https://github.com/lukedigiovanna/wiki-lie-v2",
         liveURL: "http://wiki-lie.herokuapp.com",
@@ -26,7 +48,7 @@ const projects: Project[] = [
     {
         title: "Googlepedia",
         startDate: "August 2022",
-        endDate: "Present",
+        endDate: "September 2022",
         description: "I wanted to try creating a search engine, so I did. This is quite basic and only searches Wikipedia, but it makes use of a webscraper, indexer, and frontend, just as in a real search engine.<br><br>I am currently working on extending this project to use a fully custom indexing application. You are free to read about my progress <a target='_blank' href='https://docs.google.com/document/d/1ybQDWr1OHtBjlFQ0sO_RA-qTLm5HhRMHrtWEUWUvS1g/edit?usp=sharing'>here</a>",
         githubURL: "https://github.com/lukedigiovanna/googlepedia",
         liveURL: "http://googlio.herokuapp.com",

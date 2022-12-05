@@ -7,6 +7,10 @@ const Title = styled.h1`
     color: #222;
 `
 
+const Spacer = styled.div`
+    height: 400px;
+`
+
 export const Experience = () => {
     return (
         <Row>
@@ -14,6 +18,13 @@ export const Experience = () => {
                 <Title>
                     Experience
                 </Title>
+                <JobDescription logo={require("../assets/bloomberg.png")}
+                                companyTitle={"Bloomberg LP"}
+                                jobTitle={"Software Engineer Intern"}
+                                jobLocation={"New York, NY"}
+                                startDate={"May 2023"}
+                                endDate={"August 2023"}
+                                description={"This coming summer I am very excited to be working as a software engineer for Bloomberg!"} />
                 <JobDescription logo={require("../assets/coderschool.png")}
                                 companyTitle={"The Coder School"}
                                 jobTitle={"Code Coach"}
@@ -35,6 +46,7 @@ export const Experience = () => {
                                 startDate={"June 2021"}
                                 endDate={"Aug. 2021"}
                                 description={"I was fortunate enough to have the opportunity to apply for a tech internship after my senior year of high school. At this opportunity I was able to learn a lot about cybersecurity, encryption, low level programming, and many other topics. Although I don't wish to pursue a further career in cybersecurity or the defense industry, this internship gave me valuable knowledge in the field of computer science."} />
+                <Spacer />
             </Column>
         </Row>
     );

@@ -85,11 +85,14 @@ export const ProjectBlock = (
                 }
                 <Row>
                     <Column style={{maxWidth: "200px"}}>
-                        <InfoRow>
-                            <InfoLabel>Github: </InfoLabel>
-                            <a target="_blank" href={props.project.githubURL}> here </a>
-                        
-                        </InfoRow>
+                        {
+                            props.project.githubURL && 
+                            <InfoRow>
+                                <InfoLabel>Github: </InfoLabel>
+                                <a target="_blank" href={props.project.githubURL}> here </a>
+                            
+                            </InfoRow>
+                        }
                         {
                             props.project.liveURL && 
                             <InfoRow>
