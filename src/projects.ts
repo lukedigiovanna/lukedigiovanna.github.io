@@ -13,15 +13,15 @@ export interface Project {
 
 const projects: Project[] = [
     {
-        title: "Blogging Website",
-        startDate: "September 2022",
-        endDate: "December 2022",
-        description: "I have always wanted a platform to be able to easily and freely write essays about topics of my own choosing. So, I developed a custom platform for me to write, publish, and edit articles. It's quite simple, but convenient.",
-        liveURL: "http://lukedigi-blog.herokuapp.com",
-        githubURL: null,
+        title: "MusicGPT",
+        startDate: "March 2023",
+        endDate: "April 2023",
+        description: "From a Tweet I saw utilizing ChatGPT to create music recommendations, I became inspired to automate this workflow behind a nice user interface and integrate results with Spotify to streamline listening to the LLM's suggestions.",
+        liveURL: "https://music-gpt.herokuapp.com/",
+        githubURL: "https://github.com/lukedigiovanna/MusicGPT",
+        skills: ["TypeScript", "ChatGPT", "Spotify API", "React"],
         downloadURL: null,
-        icon: null,
-        skills: ["React.js", "Express", "Firebase/Firestore"]
+        icon: null
     },
     {
         title: "Search Engine",

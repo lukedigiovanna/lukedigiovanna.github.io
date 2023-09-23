@@ -24,7 +24,7 @@ export const Experience = () => {
                                 jobLocation={"New York, NY"}
                                 startDate={"May 2023"}
                                 endDate={"August 2023"}
-                                description={"This coming summer I am very excited to be working as a software engineer for Bloomberg!"} />
+                                description={"During my summer internship at Bloomberg, I gained experience applying my programming experience to a larger team and company. My project was to build a system to stress test one of our services as a first step in allowing our traders to anaylze much larger workflows than previously possible. This required me to build a full client application in TypeScript/Node that interfaced with our C++ service."} />
                 <JobDescription logo={require("../assets/coderschool.png")}
                                 companyTitle={"The Coder School"}
                                 jobTitle={"Code Coach"}
