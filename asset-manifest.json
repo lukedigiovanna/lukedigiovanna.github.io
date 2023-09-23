@@ -1,22 +1,23 @@
 {
   "files": {
     "main.css": "/static/css/main.98125caa.css",
-    "main.js": "/static/js/main.ea94f33b.js",
+    "main.js": "/static/js/main.f6e6758f.js",
     "static/media/coderschool.png": "/static/media/coderschool.137d67e237414eae7ae3.png",
     "static/media/Quattrocento-Regular.ttf": "/static/media/Quattrocento-Regular.3d1b0443d0ee295dc542.ttf",
     "static/media/QuattrocentoSans-Regular.ttf": "/static/media/QuattrocentoSans-Regular.c2e444fd4e26b791b257.ttf",
     "static/media/virginiatech.png": "/static/media/virginiatech.5550eaa2ddedd471046e.png",
     "static/media/profile_image.jpg": "/static/media/profile_image.06975470f0fe15eb7461.jpg",
     "static/media/mantech.png": "/static/media/mantech.57c3c4d2820a7a236fbc.png",
+    "static/media/bloomberg.png": "/static/media/bloomberg.1daee6cbcbde48ae1bc8.png",
     "static/media/github.png": "/static/media/github.b029b5994ccee7ba7464.png",
     "static/media/youtube.png": "/static/media/youtube.67776e334c085cc42093.png",
     "static/media/linkedin.png": "/static/media/linkedin.e9db41041d38d6fb97b4.png",
     "index.html": "/index.html",
     "main.98125caa.css.map": "/static/css/main.98125caa.css.map",
-    "main.ea94f33b.js.map": "/static/js/main.ea94f33b.js.map"
+    "main.f6e6758f.js.map": "/static/js/main.f6e6758f.js.map"
   },
   "entrypoints": [
     "static/css/main.98125caa.css",
-    "static/js/main.ea94f33b.js"
+    "static/js/main.f6e6758f.js"
   ]
 }
