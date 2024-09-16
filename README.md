@@ -1,3 +1,3 @@
 # Luke DiGiovanna
 
-React and production code for my personal github.io page.
+This is the code for my personal website.
