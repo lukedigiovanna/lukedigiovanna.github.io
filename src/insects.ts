@@ -48,31 +48,65 @@ class Creature {
     }
 
     update(dt: number, width: number, height: number) {
-        // if (Math.random() < dt) {
-        //     this.target = {
-        //         x: Math.random() * width,
-        //         y: Math.random() * height
-        //     };
-        // }
-
         if (this._target) {
             const s0 = this.segments[0];
             const dx = this._target.x - s0.x;
             const dy = this._target.y - s0.y;
             const magnitude = Math.sqrt(dx * dx + dy * dy);
-            s0.x += dx / magnitude * this.speed * dt;
-            s0.y += dy / magnitude * this.speed * dt;
+            if (magnitude >= 10) {
+                s0.x += dx / magnitude * this.speed * dt;
+                s0.y += dy / magnitude * this.speed * dt;
+            }
         }
         this.relax();
     }
 
     render(ctx: CanvasRenderingContext2D) {
-        for (const s of this.segments) {
-            ctx.strokeStyle = "#eee";
-            ctx.lineWidth = 3;
-            ctx.beginPath();
-            ctx.arc(s.x, s.y, s.r, 0, Math.PI * 2);
-            ctx.stroke();
+        let px1, py1, px2, py2;
+        for (let i = 0; i < this.segments.length; i++) {
+            const s = this.segments[i];
+            if (i === 0 || i === this.segments.length - 1) {
+                ctx.strokeStyle = "#eee";
+                ctx.lineWidth = 3;
+                ctx.beginPath();
+                ctx.arc(s.x, s.y, s.r, 0, Math.PI * 2);
+                ctx.stroke();
+            }
+            let ps;
+            if (i > 0) {
+                ps = this.segments[i - 1];
+            }
+            else {
+                ps = this.segments[i + 1];
+            }
+            // take the normal to the ps
+            const dx = ps.x - s.x;
+            const dy = ps.y - s.y;
+            // magnitude should always be sum of radii
+            const magnitude = Math.sqrt(dx * dx + dy * dy);
+            const nx = -dy / magnitude * s.r;
+            const ny = dx / magnitude * s.r;
+            ctx.fillStyle = "red";
+            let npx1 = s.x + nx;
+            let npy1 = s.y + ny;
+            let npx2 = s.x - nx;
+            let npy2 = s.y - ny;
+            if (px1 && py1 && px2 && py2) {
+                ctx.strokeStyle = "white";
+                ctx.lineWidth = 3;
+                ctx.beginPath();
+                ctx.moveTo(px1, py1);
+                ctx.lineTo(npx1, npy1);
+                ctx.stroke();
+                ctx.beginPath();
+                ctx.moveTo(px2, py2);
+                ctx.lineTo(npx2, npy2);
+                ctx.stroke();
+            }
+            px1 = npx1;
+            py1 = npy1;
+            px2 = npx2;
+            py2 = npy2;
         }
     }
 }
