@@ -134,7 +134,7 @@ class InsectsEngine {
         const dt = this.lastRenderTime < 0 ? 0 : (currentTime - this.lastRenderTime) / 1000;
         this.simulationTime += dt;
         this.lastRenderTime = currentTime;
-        ctx.fillStyle = "#050e26";
+        ctx.fillStyle = "#ad7832";
         ctx.fillRect(0, 0, width, height);
 
         for (const creature of this.creatures) {
