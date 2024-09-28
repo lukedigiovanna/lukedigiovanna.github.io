@@ -7,8 +7,6 @@ interface CanvasProperties {
 const Canvas: React.FC<CanvasProperties> = ({ render }) => {
     const ref = React.useRef(null);
 
-
-
     const animationFrame = React.useMemo(() => {
         return () => {
             if (ref && ref.current) {
@@ -28,7 +26,7 @@ const Canvas: React.FC<CanvasProperties> = ({ render }) => {
         window.requestAnimationFrame(animationFrame);
     }, [ref, animationFrame]);
 
-    return <canvas ref={ref} className="w-[100vw] h-[100vh] absolute left-0 top-0 z-[-1]"> </canvas>
+    return <canvas ref={ref} className="w-[100vw] h-[100vh] fixed left-0 top-0 z-[-1]"> </canvas>
 }
 
 export { Canvas };

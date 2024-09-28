@@ -5,7 +5,7 @@ import { SmallProject } from './data';
 
 import { Canvas } from './Canvas';
 
-import insects from "./insects";
+import engine from "./engine/index";
 
 function App() {
   return (
@@ -25,7 +25,27 @@ function App() {
           )}
         </ul>
       </div>
-      <Canvas render={insects.render.bind(insects)}/>
+      <p className="my-8">hi</p>
+      <p className="my-8">hi</p>
+      <p className="my-8">hi</p>
+      <p className="my-8">hi</p>
+      <p className="my-8">hi</p>
+      <p className="my-8">hi</p>
+      <p className="my-8">hi</p>
+      <p className="my-8">hi</p>
+      <p className="my-8">hi</p>
+      <p className="my-8">hi</p>
+      <p className="my-8">hi</p>
+      <p className="my-8">hi</p>
+      <p className="my-8">hi</p>
+      <p className="my-8">hi</p>
+      <p className="my-8">hi</p>
+      <p className="my-8">hi</p>
+      <p className="my-8">hi</p>
+      <p className="my-8">hi</p>
+      <p className="my-8">hi</p>
+      <p className="my-8">hi</p>
+      <Canvas render={engine.render.bind(engine)}/>
     </>
   );
 }

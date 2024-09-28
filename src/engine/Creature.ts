@@ -1,20 +1,11 @@
-
-interface Segment {
-    x: number;
-    y: number;
-    r: number;
-}
-
-interface Position {
-    x: number;
-    y: number;
-}
+import { Position, Segment } from "./models";
+import { Camera } from "./Camera";
 
 class Creature {
     public readonly segments: Segment[] = [];
 
     private _target: Position | null = null;
-    private speed: number = 200;
+    private speed: number = 1;
 
     constructor(x: number, y: number, r: number, numSegments: number) {
         for (let i = 0; i < numSegments; i++) {
@@ -48,12 +39,12 @@ class Creature {
     }
 
     update(dt: number, width: number, height: number) {
-        if (this._target) {
+        if (this._target !== null) {
             const s0 = this.segments[0];
             const dx = this._target.x - s0.x;
             const dy = this._target.y - s0.y;
             const magnitude = Math.sqrt(dx * dx + dy * dy);
-            if (magnitude >= 10) {
+            if (magnitude >= 0.05) {
                 s0.x += dx / magnitude * this.speed * dt;
                 s0.y += dy / magnitude * this.speed * dt;
             }
@@ -61,16 +52,19 @@ class Creature {
         this.relax();
     }
 
-    render(ctx: CanvasRenderingContext2D) {
+    render(camera: Camera) {
         let px1, py1, px2, py2;
         for (let i = 0; i < this.segments.length; i++) {
             const s = this.segments[i];
-            if (i === 0 || i === this.segments.length - 1) {
-                ctx.strokeStyle = "#eee";
-                ctx.lineWidth = 3;
-                ctx.beginPath();
-                ctx.arc(s.x, s.y, s.r, 0, Math.PI * 2);
-                ctx.stroke();
+            if (true || i === 0 || i === this.segments.length - 1) {
+                camera.strokeStyle = "#eee";
+                camera.fillStyle = "blue";
+                camera.lineWidth = 3;
+                camera.beginPath();
+                camera.arc(s.x, s.y, s.r, 0, Math.PI * 2);
+                camera.fill();
+                camera.stroke();
+                camera.closePath();
             }
             let ps;
             if (i > 0) {
@@ -86,22 +80,26 @@ class Creature {
             const magnitude = Math.sqrt(dx * dx + dy * dy);
             const nx = -dy / magnitude * s.r;
             const ny = dx / magnitude * s.r;
-            ctx.fillStyle = "red";
+            camera.fillStyle = "red";
+            camera.strokeStyle = "white";
             let npx1 = s.x + nx;
             let npy1 = s.y + ny;
             let npx2 = s.x - nx;
             let npy2 = s.y - ny;
             if (px1 && py1 && px2 && py2) {
-                ctx.strokeStyle = "white";
-                ctx.lineWidth = 3;
-                ctx.beginPath();
-                ctx.moveTo(px1, py1);
-                ctx.lineTo(npx1, npy1);
-                ctx.stroke();
-                ctx.beginPath();
-                ctx.moveTo(px2, py2);
-                ctx.lineTo(npx2, npy2);
-                ctx.stroke();
+                camera.lineWidth = 3;
+                camera.beginPath();
+                camera.moveTo(px1, py1);
+                camera.lineTo(npx1, npy1);
+                camera.stroke();
+                camera.closePath();
+                camera.beginPath();
+                camera.lineTo(npx2, npy2);
+                camera.lineTo(px2, py2);
+                camera.lineTo(px1, py1);
+                camera.stroke();
+                camera.fill();
+                camera.closePath();
             }
             px1 = npx1;
             py1 = npy1;
@@ -111,39 +109,4 @@ class Creature {
     }
 }
 
-class InsectsEngine {
-    private creatures: Creature[] = [];
-    private lastRenderTime: number;
-    private simulationTime: number; // elapsed wall-clock time of simulation
-
-    constructor() {
-        this.lastRenderTime = -1;
-        this.simulationTime = 0;
-
-        this.creatures.push(new Creature(250, 250, 10, 100));
-
-        window.addEventListener("mousemove", (ev) => {
-            // this.creatures[0].segments[0].x = ev.x;
-            // this.creatures[0].segments[0].y = ev.y;
-            this.creatures[0].target = { x: ev.x, y: ev.y };
-        })
-    }
-
-    render(ctx: CanvasRenderingContext2D, width: number, height: number) {
-        const currentTime = (new Date()).getTime();
-        const dt = this.lastRenderTime < 0 ? 0 : (currentTime - this.lastRenderTime) / 1000;
-        this.simulationTime += dt;
-        this.lastRenderTime = currentTime;
-        ctx.fillStyle = "#ad7832";
-        ctx.fillRect(0, 0, width, height);
-
-        for (const creature of this.creatures) {
-            creature.update(dt, width, height);
-            creature.render(ctx);
-        }
-    }
-}
-
-const engine = new InsectsEngine();
-
-export default engine;
+export { Creature };
